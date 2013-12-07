@@ -46,16 +46,33 @@ $.fn.audioab = function( options ) {
                     if(active){
                         active.button.removeClass('active').removeClass('btn-success').addClass('btn-default');
                         active.container.css({top: '50px'});
-                        var paused = active.api.paused;                        
-                        if(!paused){
-                            active.api.pause();
-                            item.api.play();
-                        } 
+                        
+                        var currentTime = 0;
                         try{
-                            item.api.setCurrentTime((active.api.currentTime));
+                            // item.api.setCurrentTime((active.api.currentTime));
+                            currentTime = active.api.currentTime;
                             item.api.setVolume(active.api.volume);
                         }catch(err){
                             
+                        }
+                        
+                        var paused = active.api.paused;                        
+                        if(!paused){
+                            active.api.pause();
+                            $(item.api).one('playing', function(){
+                                try{
+                                    item.api.setCurrentTime(currentTime);
+                                }catch(err){
+                                    
+                                }
+                            });
+                            item.api.play();
+                        }else{
+                            try{
+                                item.api.setCurrentTime(currentTime);
+                            }catch(err){
+                                
+                            }
                         }
                     }
                     
