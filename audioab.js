@@ -41,6 +41,8 @@ $.fn.audioab = function( options ) {
                 var $b = $(this);
                 if(active != item){
                     container.css({top: 0, position: 'absolute'});
+                    $b.removeClass('btn-default').addClass('btn-success').addClass('active');                    
+
                     if(active){
                         active.button.removeClass('active').removeClass('btn-success').addClass('btn-default');
                         active.container.css({top: '50px'});
@@ -50,7 +52,6 @@ $.fn.audioab = function( options ) {
                         item.api.setVolume(active.api.volume);
                         if(!paused) item.api.play();
                     }
-                    $b.removeClass('btn-default').addClass('btn-success').addClass('active');                    
                     
                     
                     active = item;
