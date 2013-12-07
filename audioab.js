@@ -1,13 +1,12 @@
-var items = [];
-
 $.fn.audioab = function( options ) {
+    var items = [];
     var active = null;
 
     return this.each(function() {
         var $e = $(this);
                 
         $.map(options.classes, function(c){
-            var button = $e.find('button.'+c);            
+            var button = $e.find('a.'+c);            
             var element = $e.find('audio.'+c);
             
             var item = {};
@@ -20,15 +19,6 @@ $.fn.audioab = function( options ) {
                         
             var container = $e.find('.mejs-container.'+c);
     
-            /*
-            var item = {
-                button: button,
-                element: element,
-                container: container,
-                api: api
-            };
-            */
-            
             item['container'] = container;
             item['element'] = element;
             item['button'] = button;
@@ -37,7 +27,8 @@ $.fn.audioab = function( options ) {
             
             container.css({top: '50px'});
             
-            button.on('click', function(){
+            button.on('click', function(e){
+                e.preventDefault();
                 var $b = $(this);
                 if(active != item){
                     container.css({top: 0, position: 'absolute'});
@@ -49,7 +40,6 @@ $.fn.audioab = function( options ) {
                         
                         var currentTime = 0;
                         try{
-                            // item.api.setCurrentTime((active.api.currentTime));
                             currentTime = active.api.currentTime;
                             item.api.setVolume(active.api.volume);
                         }catch(err){
@@ -89,9 +79,5 @@ $.fn.audioab = function( options ) {
         
     });
     
-    
-    function switchTo(){
-        
-    }
     
 };
