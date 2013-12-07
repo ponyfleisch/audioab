@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Audio A/B</title>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="mediaelement/mediaelement-and-player.min.js"></script>
+        <link rel="stylesheet" href="mediaelement/mediaelementplayer.css" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="audioab.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.group').audioab({ classes: ['a', 'b'] });
+            });
+        </script>
+
+    </head>
+
+    <body>
+        <div class="group">
+            <button type="button" class="btn btn-default btn-lg a">A</button>
+            <button type="button" class="btn btn-default btn-lg b">B</button>
+            
+            <div class="elementwrapper">
+                <audio class="a" src="audio/Am Hornigen Grat_Stereo.mp3"></audio>
+                <audio class="b" src="audio/Am Hornigen Grat-Ausschnitt_3D.mp3"></audio>
+            </div>
+        </div>
+    </body>
+</html>
