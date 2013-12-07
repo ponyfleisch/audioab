@@ -35,14 +35,14 @@ $.fn.audioab = function( options ) {
                 
             items.push(item);
             
-            container.css({left: '-1000px'});
+            container.css({top: '50px'});
             
             button.on('click', function(){
                 var $b = $(this);
                 if(active != item){
                     if(active){
                         active.button.removeClass('active').removeClass('btn-success').addClass('btn-default');
-                        active.container.css({left: '-1000px'});
+                        active.container.css({top: '50px'});
                         var paused = active.api.paused;                        
                         active.api.pause();
                         item.api.setCurrentTime((active.api.currentTime));
@@ -51,7 +51,7 @@ $.fn.audioab = function( options ) {
                     }
                     $b.removeClass('btn-default').addClass('btn-success').addClass('active');                    
                     
-                    container.css({left: 0, top: 0, position: 'absolute'});
+                    container.css({top: 0, position: 'absolute'});
                     
                     active = item;
                 }
