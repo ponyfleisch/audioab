@@ -1,4 +1,5 @@
 apis = [];
+var api = null;
 
 $.fn.audioab = function( options ) {
     var items = [];
@@ -10,7 +11,7 @@ $.fn.audioab = function( options ) {
         $.map(options.classes, function(c){
             var button = $e.find('button.'+c);            
             var element = $e.find('audio.'+c);
-            var api = null;
+            // var api = null;
             
             element.mediaelementplayer({
                 success: function(local_api){
