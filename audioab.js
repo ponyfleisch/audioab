@@ -1,8 +1,6 @@
-apis = [];
-var api = null;
+var items = [];
 
 $.fn.audioab = function( options ) {
-    var items = [];
     var active = null;
 
     return this.each(function() {
@@ -11,26 +9,30 @@ $.fn.audioab = function( options ) {
         $.map(options.classes, function(c){
             var button = $e.find('button.'+c);            
             var element = $e.find('audio.'+c);
-            // var api = null;
+            
+            var item = {};
             
             element.mediaelementplayer({
-                success: function(local_api){
-                    api = local_api;
-                    apis.push(local_api);
+                success: function(api){
+                    item['api'] = api;
                 }
             });
                         
             var container = $e.find('.mejs-container.'+c);
     
+            /*
             var item = {
                 button: button,
                 element: element,
                 container: container,
                 api: api
             };
+            */
             
-            console.dir(item);
-    
+            item['container'] = container;
+            item['element'] = element;
+            item['button'] = button;
+                
             items.push(item);
             
             container.css({left: '-1000px'});
