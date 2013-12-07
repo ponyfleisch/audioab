@@ -40,6 +40,7 @@ $.fn.audioab = function( options ) {
             button.on('click', function(){
                 var $b = $(this);
                 if(active != item){
+                    container.css({top: 0, position: 'absolute'});
                     if(active){
                         active.button.removeClass('active').removeClass('btn-success').addClass('btn-default');
                         active.container.css({top: '50px'});
@@ -51,7 +52,6 @@ $.fn.audioab = function( options ) {
                     }
                     $b.removeClass('btn-default').addClass('btn-success').addClass('active');                    
                     
-                    container.css({top: 0, position: 'absolute'});
                     
                     active = item;
                 }
