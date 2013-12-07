@@ -46,15 +46,15 @@ $.fn.audioab = function( options ) {
                     if(active){
                         active.button.removeClass('active').removeClass('btn-success').addClass('btn-default');
                         active.container.css({top: '50px'});
+                        var paused = active.api.paused;                        
+                        active.api.pause();
                         try{
-                            var paused = active.api.paused;                        
-                            active.api.pause();
                             item.api.setCurrentTime((active.api.currentTime));
                             item.api.setVolume(active.api.volume);
-                            if(!paused) item.api.play();
                         }catch(err){
                             
-                        };
+                        }
+                        if(!paused) item.api.play();
                     }
                     
                     
