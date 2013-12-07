@@ -27,6 +27,8 @@ $.fn.audioab = function( options ) {
                 container: container,
                 api: api
             };
+            
+            console.dir(item);
     
             items.push(item);
             
