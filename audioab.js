@@ -5,7 +5,7 @@ $.fn.audioab = function( options ) {
     return this.each(function() {
         var $e = $(this);
                 
-        options.classes.map(function(c){
+        $.map(options.classes, function(c){
             var button = $e.find('button.'+c);            
             var element = $e.find('audio.'+c);
             var api = null;
