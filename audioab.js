@@ -12,6 +12,7 @@ $.fn.audioab = function( options ) {
             var item = {};
             
             element.mediaelementplayer({
+                audioWidth: '290',
                 success: function(api){
                     item['api'] = api;
                 }
