@@ -1,3 +1,5 @@
+apis = [];
+
 $.fn.audioab = function( options ) {
     var items = [];
     var active = null;
@@ -13,8 +15,10 @@ $.fn.audioab = function( options ) {
             element.mediaelementplayer({
                 success: function(local_api){
                     api = local_api;
+                    apis.push(local_api);
                 }
             });
+                        
             var container = $e.find('.mejs-container.'+c);
     
             var item = {
