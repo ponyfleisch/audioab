@@ -1,8 +1,8 @@
 $.fn.audioab = function( options ) {
-    var items = [];
-    var active = null;
 
     return this.each(function() {
+        var items = [];
+        var active = null;
         var $e = $(this);
                 
         $.map(options.classes, function(c){
